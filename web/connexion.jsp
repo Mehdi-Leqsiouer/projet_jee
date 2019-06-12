@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Connection</title>
+        <title>Connexion</title>
     </head>
     <body>
         <%
@@ -41,13 +41,16 @@
             ResultSet res=st.executeQuery();
             
             if (res.next() == true) {
+                String role = res.getString("role");
                 session.setAttribute("role", role);
-                out.println("Connecté");
+                if(role.equals("user"))
+                    response.sendRedirect("jeux_user.jsp");
+                else
+                    response.sendRedirect("page_admin.jsp");
                 //response.sendRedirect("intranet.jsp");
             }
             else
-                out.println("Pas connecté");
-                //response.sendRedirect("index.jsp");
+                response.sendRedirect("index.jsp");
             %>
     </body>
 </html>

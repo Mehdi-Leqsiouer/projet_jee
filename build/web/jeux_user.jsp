@@ -12,7 +12,7 @@
         <title>Jeux - User</title>
     </head>
     <body>
-        <form method="GET" action="action_jeux_user.jsp">
+        <form method="POST" action="action_jeux_user.jsp">
             <label>Choisissez votre nombre de parties</label>
             <select name="nb_part">
                 <option>5</option>

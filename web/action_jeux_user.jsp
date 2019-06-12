@@ -12,6 +12,8 @@
         <title>Action - Jeux User</title>
     </head>
     <body>
-        
+        <%
+            
+        %>
     </body>
 </html>
