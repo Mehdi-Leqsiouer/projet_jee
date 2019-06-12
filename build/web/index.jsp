@@ -14,8 +14,8 @@
     <body>
         <h1>Page de connexion</h1>
         <form action = "connexion.jsp" method ="POST">
-            Login : <input type ="text" name="login" placeholder="Entrez votre login"/>
-            Password : <input type ="password" name ="password" placeholder="Entrez votre mdp"/>
+            Login : <input type ="text" name="login" placeholder="Entrez votre login"/></br>
+            Password : <input type ="password" name ="password" placeholder="Entrez votre mdp"/></br>
             
             <input type="submit" name ="submit" value="Submit"/>
         </form>

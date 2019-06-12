@@ -41,7 +41,7 @@
             ResultSet res=st.executeQuery();
             
             if (res.next() == true) {
-                session.setAttribute("login", login);
+                session.setAttribute("role", role);
                 out.println("Connecté");
                 //response.sendRedirect("intranet.jsp");
             }
