@@ -40,10 +40,11 @@
             //st.setString(2, "'"+mdp+"'");
             ResultSet res=st.executeQuery();
             
-            if (res.next() == true) {
+            if (res.next()) {
                 String role = res.getString("role");
                 session.setAttribute("role", role);
-                if(role.equals("user"))
+                session.setAttribute("login",login);
+                if(role.equals("utilisateur"))
                     response.sendRedirect("jeux_user.jsp");
                 else
                     response.sendRedirect("page_admin.jsp");
