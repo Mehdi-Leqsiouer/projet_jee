@@ -22,9 +22,9 @@
             }catch(Exception e){out.print(e);}
             
             try{
-                String jdbc="jdbc:mysql://localhost:3306/alt2";
-                String root="alt2";
-                String mdp="alt2";
+                String jdbc="jdbc:mysql://localhost:3306/alt7";
+                String root="alt7";
+                String mdp="alt7";
                 conn=DriverManager.getConnection(jdbc,root,mdp);
                 stmt=conn.createStatement();
             }catch(Exception e){out.print(e);}
@@ -43,7 +43,7 @@
                 fin = false;
                 cptr = 0; 
                 nb_lancer = 0;
-                out.println("Partie : "+i);
+                out.println("Partie : "+i+" <br>");
                 while(!fin) {
                     alea = ((int)(Math.random()*100)%6) + 1;
                     nb_lancer++;
@@ -58,7 +58,7 @@
                     if(alea == 5 || alea == 6)
                         cptr++;
                     if(cptr == 2) {
-                        out.println("C"+" Nombre lancer : "+nb_lancer);
+                        out.println("C"+" <br>Nombre lancer : "+nb_lancer+"<br>");
                         fin = true;
                     }
                 }

@@ -22,9 +22,9 @@
             }catch(Exception e){out.print(e);}
             
             try{
-                String jdbc="jdbc:mysql://localhost:3306/alt2";
-                String root="alt2";
-                String mdp="alt2";
+                String jdbc="jdbc:mysql://localhost:3306/alt7";
+                String root="alt7";
+                String mdp="alt7";
                 conn=DriverManager.getConnection(jdbc,root,mdp);
                 stmt=conn.createStatement();
             }catch(Exception e){out.print(e);}
@@ -37,6 +37,7 @@
             
             PreparedStatement st=conn.prepareStatement(sel);
             //st.setString(1, "'"+login+"'");
+            
             //st.setString(2, "'"+mdp+"'");
             ResultSet res=st.executeQuery();
             
