@@ -49,6 +49,9 @@
                 total = res2.getString("res");
             int total_partie = Integer.parseInt(total);
             
+            int [] tab_parties = new int[100];
+            int i =0;
+            
             out.println("<table border='1'> <th> Nombre de lancers</th> <th>Nombre de parties</th> <th>Fréquence </th>");
             while (res.next()) {
                 String nb_lancer = res.getString("compteur");
@@ -61,12 +64,16 @@
                 fr.setMaximumFractionDigits(3);
                 out.println("<tr>");
                 out.println("<td>"+lancer_id+"</td><td>"+lancer_cptr+"</td><td>"+fr.format(frequence)+"</td>");
-                out.println("</tr>");                
+                out.println("</tr>");    
+                tab_parties[i] = lancer_cptr;
+                i++;
             }
             out.println("</table>");
             out.println("</br>");
             
             out.println("<form><button type='submit'>Calculer moyenne</button> </form>");
+            
+            out.println("Moyenne : "+total_partie/i);
           
             
             %>
