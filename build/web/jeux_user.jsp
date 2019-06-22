@@ -12,6 +12,14 @@
         <title>Jeux - User</title>
     </head>
     <body>
+        <%
+            if (session.getAttribute("role") == null)
+                response.sendRedirect("index.jsp");
+            else if (session.getAttribute("role") .equals( "administrateur"))
+                response.sendRedirect("page_admin.jsp");;
+            
+            %>
+        
         <form method="POST" action="action_jeux_user.jsp">
             <label>Choisissez votre nombre de parties</label>
             <select name="nb_part">
@@ -22,8 +30,9 @@
                 <option>9</option>
                 <option>10</option>
             </select>
-            <input type="submit" value="Jouer !" />
+            <input type="submit" name = "submit" value="Jouer !" />
 
         </form>
+            </br><a href="deconnexion.jsp">Se déconnecter</a>
     </body>
 </html>

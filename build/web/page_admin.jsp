@@ -22,6 +22,13 @@
         <h1>Page admin</h1>
         
         <%
+            if (session.getAttribute("role") == null)
+                response.sendRedirect("index.jsp");
+                     else if (session.getAttribute("role") .equals( "utilisateur"))
+                response.sendRedirect("jeux_user.jsp");
+           
+            else {
+            
             Connection conn=null;
             Statement stmt=null;
             try{
@@ -76,7 +83,7 @@
             
             out.println("<p id = 'moyenne' style='display:none;'>Moyenne : "+(double)total_partie/i+"</p>");
           
-            
+            }
             %>
             
             <script>

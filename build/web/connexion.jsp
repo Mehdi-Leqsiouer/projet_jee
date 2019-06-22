@@ -15,6 +15,13 @@
     </head>
     <body>
         <%
+            if(session.getAttribute("role") != null) {
+            if (session.getAttribute("role") .equals("administrateur"))
+                response.sendRedirect("page_admin.jsp");
+            else if (session.getAttribute("role") .equals("utilisateur"))
+                response.sendRedirect("jeux_user.jsp");
+            }
+            
         Connection conn=null;
             Statement stmt=null;
             try{

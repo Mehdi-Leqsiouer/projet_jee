@@ -14,7 +14,17 @@
         <title>Action - Jeux User</title>
     </head>
     <body>
-        <%
+        <%  
+     
+            if (session.getAttribute("role") == null)
+                response.sendRedirect("index.jsp");
+            else if (session.getAttribute("role") .equals( "administrateur"))
+                response.sendRedirect("page_admin.jsp");
+            else {
+                
+            if(request.getParameter("submit") == null)
+                response.sendRedirect("jeux_user.jsp");
+            
             Connection conn=null;
             Statement stmt=null;
             try{
@@ -87,6 +97,7 @@
                 }
                     out.println("</br>");
                 }
+            }
             %>
             <a href ="jeux_user.jsp">Rejouer </a><br>
         <a href="deconnexion.jsp">Se déconnecter</a>
