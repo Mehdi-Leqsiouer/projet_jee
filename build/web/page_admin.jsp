@@ -15,6 +15,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="jquery.js"></script>
         <title>JSP Page</title>
     </head>
     <body>
@@ -71,11 +72,22 @@
             out.println("</table>");
             out.println("</br>");
             
-            out.println("<form><button type='submit'>Calculer moyenne</button> </form>");
+            out.println("<button id='bouton' type='submit'>Calculer moyenne</button>");
             
-            out.println("Moyenne : "+total_partie/i);
+            out.println("<p id = 'moyenne' style='display:none;'>Moyenne : "+(double)total_partie/i+"</p>");
           
             
             %>
+            
+            <script>
+                $(document).ready(function() {         
+                    $("#bouton").click(function() {
+                        $("#moyenne").show();
+                    });    
+                });
+              
+            </script>  
+            
+            <a href="deconnexion.jsp">Se déconnecter</a>
     </body>
 </html>
