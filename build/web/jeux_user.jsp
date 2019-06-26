@@ -32,7 +32,7 @@
             <div class="container text-center mt-3">
                 <form method="POST" action="action_jeux_user.jsp">
                     <div class="form-group d-flex justify-content-center flex-column">
-                        <h5 class="card-title">Choisissez votre nombre de partie:</h5>
+                        <h5 class="card-title">Choisissez votre nombre de partie :</h5>
                         <select class="form-control w-25" name="nb_part">
                             <option selected>5</option>
                             <option>6</option>
@@ -42,8 +42,8 @@
                             <option>10</option>
                         </select>
                     </div>
-                    <button class="btn btn-dark btn-lg mt-2" type="submit" name = "submit">Jouer !</button>
-                    <a class="btn btn-light btn-lg mt-2" href="deconnexion.jsp">Se déconnecter</a>
+                    <button class="btn btn-success btn-lg mt-2" type="submit" name = "submit">Jouer !</button>
+                    <a class="btn btn-secondary btn-lg mt-2" href="deconnexion.jsp">Se déconnecter</a>
                 </form>
             </div>
         </div>

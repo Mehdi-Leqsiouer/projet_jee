@@ -44,14 +44,14 @@
                     <p>Connectez-vous pour jouer dès à présent !</p>
                     <form action = "connexion.jsp" method="POST">
                         <div class="form-row">
-                            <label for="login">Login</label>
-                            <input name="login" type="text" class="form-control" id="login" placeholder="Entrez votre login">
+                            <label for="login">Nom d'utilisateur</label>
+                            <input name="login" type="text" class="form-control" id="login" placeholder="Entrez votre nom d'utilisateur">
                         </div>
                         <div class="form-row">
-                            <label for="password">Password</label>
+                            <label for="password">Mot de passe</label>
                             <input name="password" type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe">
                         </div>
-                        <button type="submit" class="btn btn-dark btn-lg mt-2" name ="submit" value="Submit">Me connecter !</button>
+                        <button type="submit" class="btn btn-secondary btn-lg mt-2" name ="submit" value="Submit">Se connecter !</button>
                     </form>
                 </div>
             </div>

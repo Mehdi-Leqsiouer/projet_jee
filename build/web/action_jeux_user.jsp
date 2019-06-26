@@ -120,8 +120,8 @@
                         %>
                     </tbody>
                 </table>
-                <a href="jeux_user.jsp" class="btn btn-dark">Rejouer</a>
-                <a href="deconnexion.jsp" class="btn btn-light">Se déconnecter</a>
+                <a href="jeux_user.jsp" class="btn btn-success">Rejouer</a>
+                <a href="deconnexion.jsp" class="btn btn-secondary">Se déconnecter</a>
             </div>
         </div>
                     <div class="fixed-bottom bg-dark h-55 p-10 text-white">

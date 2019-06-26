@@ -93,7 +93,7 @@
                     format.setMaximumFractionDigits(3);
                     double moyenne = (double) sum / total_partie;
 
-                    out.println("<button class='btn btn-dark' id='bouton' type='submit'>Calculer moyenne</button>");
+                    out.println("<button class='btn btn-info' id='bouton' type='submit'>Calculer moyenne</button>");
 
                     out.println("<p id = 'moyenne' style='display:none;'>Moyenne : " + format.format(moyenne)+ "</p>");
                 }
@@ -111,7 +111,7 @@
             });
 
         </script>  
-        <a href="deconnexion.jsp" class="btn btn-dark">Se déconnecter</a>
+        <a href="deconnexion.jsp" class="btn btn-secondary">Se déconnecter</a>
         </div></div>
         <br>
         <br>
