@@ -44,13 +44,13 @@
             String login = request.getParameter("login");
             String mdp = request.getParameter("password");
 
-            String sel = "SELECT * from utilisateurs where login like '" + login + "' and password like '" + mdp + "'";
-            //String sel="SELECT * from exo16 where login like ? and password like ?";
+            //String sel = "SELECT * from utilisateurs where login like '" + login + "' and password like '" + mdp + "'";
+            String sel="SELECT * from utilisateurs where login like ? and password like ?";
 
             PreparedStatement st = conn.prepareStatement(sel);
-            //st.setString(1, "'"+login+"'");
+            st.setString(1, login);
 
-            //st.setString(2, "'"+mdp+"'");
+            st.setString(2, mdp);
             ResultSet res = st.executeQuery();
 
             if (res.next()) {

@@ -32,7 +32,14 @@
             <div class="container-fluid">
                 <div class="jumbotron mt-5">
                     <h1 class="display-4 text-center">Bienvenue sur le jeu du triangle !</h1>
-                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                    <p class="lead">Pour jouer, il vous suffit de cliquer sur le bouton "Jouer", il faut être user.<br>
+                        Le but du jeu est de faire déplacer un mobile sur les 3 sommets d'un Triangle en partant du sommet A, puis passer par le B et arriver sur le C.<br>
+                        Derrière ce bouton se passe plusieurs actions, un "dé" se lance :<br>
+                        -Si le dé tombe sur 1, 2, 3 ou 4, le mobile reste sur place;<br>
+                        -Si le dé tombe sur 5 ou 6, le dé se place d'une case seulement et ainsi de suite.<br><br>
+                        Le "user" pourra jouer en choisissant son nombre de partie et ensuite visualiser son score.
+                        L'"admin" pourra visualiser les parties du joueur, la fréquence sur le nombre de lancers qu'il réalise et calculer la moyenne de toutes ses parties.
+                    </p>
                     <hr class="my-4">
                     <p>Connectez-vous pour jouer dès à présent !</p>
                     <form action = "connexion.jsp" method="POST">
