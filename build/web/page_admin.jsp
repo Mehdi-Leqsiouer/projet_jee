@@ -15,8 +15,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
         <script src="jquery.js"></script>
-        <title>JSP Page</title>
+        <title>Jeux - Admin</title>
     </head>
     <body class="bg-light">
         <nav class="navbar navbar-dark bg-dark">
@@ -25,8 +26,6 @@
                 <h6 class="text-white h4">Projet Triangle</h6>
             </div>
         </nav>
-        <h1>Page admin</h1>
-
         <%
             if (session.getAttribute("role") == null) {
                 response.sendRedirect("index.jsp");
@@ -51,48 +50,56 @@
                 } catch (Exception e) {
                     out.print(e);
                 }
+                try {
+                    String sel = "SELECT * from somme order by id_lancer";
+                    String somme = "select sum(compteur) res from somme";
 
-                String sel = "SELECT * from somme order by id_lancer";
-                String somme = "select sum(compteur) res from somme";
+                    PreparedStatement st = conn.prepareStatement(sel);
+                    PreparedStatement st2 = conn.prepareStatement(somme);
+                //st.setString(1, "'"+login+"'");
+                    //st.setString(2, "'"+mdp+"'");
+                    ResultSet res = st.executeQuery();
+                    ResultSet res2 = st2.executeQuery();
+                    String total = "";
+                    if (res2.next()) {
+                        total = res2.getString("res");
+                    }
+                    int total_partie = Integer.parseInt(total);
 
-                PreparedStatement st = conn.prepareStatement(sel);
-                PreparedStatement st2 = conn.prepareStatement(somme);
-            //st.setString(1, "'"+login+"'");
-                //st.setString(2, "'"+mdp+"'");
-                ResultSet res = st.executeQuery();
-                ResultSet res2 = st2.executeQuery();
-                String total = "";
-                if (res2.next()) {
-                    total = res2.getString("res");
+                    int[] tab_parties = new int[100];
+                    int i = 0;
+                    int sum = 0;
+
+                    out.println("<div class='container-fluid mt-3'><div class='container'><table class='table'> <thead class='thead-dark'> <tr> <th scope='col'> Nombre de lancers</th> <th scope='col'>Nombre de parties</th> <th scope='col'>Fréquence </th></tr><thead>");
+                    while (res.next()) {
+                        String nb_lancer = res.getString("compteur");
+                        String id_lancer = res.getString("id_lancer");
+                        int lancer_cptr = Integer.parseInt(nb_lancer);
+                        int lancer_id = Integer.parseInt(id_lancer);
+                        sum += lancer_cptr*lancer_id;
+                        //3 chiffres après la virgule
+                        double frequence = (double) lancer_cptr / total_partie;
+                        DecimalFormat fr = new DecimalFormat();
+                        fr.setMaximumFractionDigits(3);
+                        out.println("<tr>");
+                        out.println("<td scope='row'>" + lancer_id + "</td><td scope='row'>" + lancer_cptr + "</td><td scope='row'>" + fr.format(frequence) + "</td>");
+                        out.println("</tr>");
+                        tab_parties[i] = lancer_cptr;
+                        i++;
+                    }
+                    out.println("</table>");
+                    out.println("</br>");
+                    DecimalFormat format = new DecimalFormat();
+                    format.setMaximumFractionDigits(3);
+                    double moyenne = (double) sum / total_partie;
+
+                    out.println("<button class='btn btn-dark' id='bouton' type='submit'>Calculer moyenne</button>");
+
+                    out.println("<p id = 'moyenne' style='display:none;'>Moyenne : " + format.format(moyenne)+ "</p>");
                 }
-                int total_partie = Integer.parseInt(total);
-
-                int[] tab_parties = new int[100];
-                int i = 0;
-
-                out.println("<table border='1'> <th> Nombre de lancers</th> <th>Nombre de parties</th> <th>Fréquence </th>");
-                while (res.next()) {
-                    String nb_lancer = res.getString("compteur");
-                    String id_lancer = res.getString("id_lancer");
-                    int lancer_cptr = Integer.parseInt(nb_lancer);
-                    int lancer_id = Integer.parseInt(id_lancer);
-                    //3 chiffres après la virgule
-                    double frequence = (double) lancer_cptr / total_partie;
-                    DecimalFormat fr = new DecimalFormat();
-                    fr.setMaximumFractionDigits(3);
-                    out.println("<tr>");
-                    out.println("<td>" + lancer_id + "</td><td>" + lancer_cptr + "</td><td>" + fr.format(frequence) + "</td>");
-                    out.println("</tr>");
-                    tab_parties[i] = lancer_cptr;
-                    i++;
+                catch(Exception e){
+                    out.println("Aucune partie n'a été effectuée");
                 }
-                out.println("</table>");
-                out.println("</br>");
-
-                out.println("<button id='bouton' type='submit'>Calculer moyenne</button>");
-
-                out.println("<p id = 'moyenne' style='display:none;'>Moyenne : " + (double) total_partie / i + "</p>");
-
             }
         %>
 
@@ -104,7 +111,10 @@
             });
 
         </script>  
-        <a href="deconnexion.jsp">Se déconnecter</a>
+        <a href="deconnexion.jsp" class="btn btn-dark">Se déconnecter</a>
+        </div></div>
+        <br>
+        <br>
         <div class="fixed-bottom bg-dark h-55 p-10 text-white">
             <p class="text-center">Un projet de Mehdi Leqsiouer, Florian Marques et Victorien Gbaguidi</p>
         </div>

@@ -121,7 +121,7 @@
                     </tbody>
                 </table>
                 <a href="jeux_user.jsp" class="btn btn-dark">Rejouer</a>
-                <a href="deconnexion.jsp" class="btn btn-light">Me déconnecter</a>
+                <a href="deconnexion.jsp" class="btn btn-light">Se déconnecter</a>
             </div>
         </div>
                     <div class="fixed-bottom bg-dark h-55 p-10 text-white">
